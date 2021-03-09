@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p><%= @building.name %></p>
+
+<% if @building.apartments.present? %>
+<ul>
+    <% @building.apartments.each do |apartment| %>
+    <li><%= link_to apartment.number, building_apartment_path(@building, apartment) %></li>
+    <% end %>
+</ul>
+<% end %>
+
+
+
+<%= link_to 'New apartment', new_building_apartment_path(@building) %> | <%= link_to 'Edit', edit_building_path(@building) %> | <%= link_to 'Back', buildings_path %>
